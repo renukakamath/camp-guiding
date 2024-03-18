@@ -1,0 +1,58 @@
+{% include 'adminheader.html'%}
+<body>
+	<br><br><br>
+	<h1 align="center"><u><font color="red">Add  competition</font></u></h1>
+	<form method="post">
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+		
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<tr>
+				<th><font color="red">title</font></th>
+				<td><input type="text" name="title" class="form-control" required="" style="width:100%;height: 40px"></td>
+			</tr>
+			<tr>
+				<th><font color="red">description</font></th>
+			<td><input type="text" name="description" class="form-control" required="" style="width:100%;height: 40px" ></td>
+		</tr>
+
+		<tr>
+				<th><font color="red">competition date</font></th>
+			<td><input type="date" name="date" class="form-control" required="" style="width:100%;height: 40px" ></td>
+		</tr>
+		<tr>
+				<th><font color="red">Venu</font></th>
+			<td><input type="text" name="venu" class="form-control" required="" style="width:100%;height: 40px" ></td>
+		</tr>
+
+		
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="form-control" style="width:100%;height: 40px"></td>
+			</tr>
+		</table>
+	
+		<br><br><br>
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<h1 align="center"><font color="red">View  competition</font>
+			<tr>
+				<th>title</th>
+				<th>description</th>
+				<th>competition date</th>
+				<th>Venu</th>
+				<th>date</th>
+				<th>Status</th>
+			</tr>
+			<tbody>
+				{% for row in data['po']%}
+				<td>{{row['title']}}</td>
+				<td>{{row['description']}}</td>
+				<td>{{row['competition_date']}}</td>
+				<td>{{row['venu']}}</td>
+				<td>{{row['date']}}</td>
+				<td>{{row['status']}}</td>
+			
+				<td><a href="?action=delete&id={{row['competition_id']}}&aid={{row['age_category_id']}}" class="btn btn-primary">Delete</a></td>
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}

@@ -1,0 +1,44 @@
+{% include 'photoheader.html'%}
+
+<script type="text/javascript">
+	function TextOnTextChange()
+	{
+		var x =document.getElementById("p_amount").value;
+		var y =document.getElementById("p_qnty").value;
+		document.getElementById("t_amount").value = x * y;
+	}
+
+</script> 
+<center>
+<h1>Add To Cart</h1>
+<form method="post" enctype="multipart/form-data">
+
+	<table class="table" style="width:500px">
+
+		<tr>
+			<th>Product Name</th>
+			<td><input type="text" required="" value="{{data['pname']}}" class="form-control" name="fname"></td>
+		</tr>
+		
+		<tr>
+			<th>Amount</th>
+			<td><input type="number" required="" class="form-control" value="{{data['pamo']}}" readonly=""  id="p_amount" name="amount"></td>
+		</tr>
+
+		
+		<tr>
+			<th>quantity</th>
+			<td><input type="number" required="" class="form-control"  id="p_qnty" onchange="TextOnTextChange()" name="quantity"></td>
+		</tr>
+		<tr>
+			<th>Total</th>
+			<td><input type="number" required="" class="form-control" readonly="" id="t_amount" name="total"></td>
+		</tr>
+		
+		<td align="center" colspan="2"><input type="submit" name="cart" value="submit" class="btn btn-success"></td>
+	</table>
+
+</form>
+</center>
+
+{% include 'footer.html'%}

@@ -1,0 +1,43 @@
+{% include 'publicheader.html'%}
+<body>
+	<br><br><br>
+	<h1 align="center"><u><font color="red">Expert Registration</font></u></h1>
+	<form method="post">
+	
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<tr>
+				<th><font color="red">first Name</font></th>
+				<td><input type="text" name="fname" class="form-control" required="" style="width:100%;height: 40px" pattern="[A-Z/a-z]+"></td>
+			</tr>
+
+			<tr>
+				<th><font color="red">Last Name</font></th>
+				<td><input type="text" name="lname" class="form-control" required="" style="width:100%;height: 40px" pattern="[A-Z/a-z]+"></td>
+			</tr>
+			<tr>
+				<th><font color="red">Place</font></th>
+				<td><input type="text" name="place" class="form-control" required="" style="width:100%;height: 40px" pattern="[A-Z/a-z]+"></td>
+			</tr>
+		
+			<tr>
+				<th><font color="red">Contact</font></th>
+				<td><input type="text" name="phone" class="form-control" required="" style="width:100%;height: 40px" pattern="[0-9]{10}"></td>
+			</tr>
+			<tr>
+				<th><font color="red">Email</font></th>
+				<td><input type="email" name="email" class="form-control" required="" style="width:100%;height: 40px"></td>
+			</tr>
+			<tr>
+				<th><font color="red">Username</font></th>
+				<td><input type="text" name="username" class="form-control" required="" style="width:100%;height: 40px"></td>
+			</tr>
+			<tr>
+				<th><font color="red">Password</font></th>
+			<td><input type="password" name="password" class="form-control" required="" style="width:100%;height: 40px"  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder="use one uppercase,lowercase and digit"></td>
+		</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="form-control" style="width:100%;height: 40px"></td>
+			</tr>
+		</table>
+		
+{% include 'footer.html'%}

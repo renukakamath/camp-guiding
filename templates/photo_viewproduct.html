@@ -1,0 +1,31 @@
+{% include 'photoheader.html'%}
+<body>
+	<form method="post">
+		
+			<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<h1 align="center"><font color="red">View  product</font>
+			<tr>
+				<th>product name</th>
+				<th>quantity</th>
+				<th>amount</th>
+				
+			</tr>
+			<tbody>
+				{% for row in data['po']%}
+				<td>{{row['product_name']}}</td>
+				<td>{{row['quality']}}</td>
+					<td>{{row['amount']}}</td>
+
+					<td><a href="?action=request&pid={{row['product_id']}}">Send request</a></td>
+
+
+					<td><a href="photo_addtocart?pid={{row['product_id']}}&pname={{row['product_name']}}&pamo={{row['amount']}}&stock={{row['quality']}}">Add To Cart</a></td>
+			
+
+				
+				
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}

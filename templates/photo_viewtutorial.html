@@ -1,0 +1,28 @@
+{% include 'photoheader.html'%}
+<body>
+	<form method="post">
+		
+			<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<h1 align="center"><font color="red">View  Tutorial</font>
+			<tr>
+				<th>title</th>
+				<th>youtube link</th>
+				<th>Video</th>
+				
+			</tr>
+			<tbody>
+				{% for row in data['po']%}
+<td>{{row['title']}}</td>
+				<td>{{row['youtube_link']}}</td>
+
+				<td><video width="320" height="240" controls>
+  <source src="/{{row['video']}}" type="video/mp4">
+  <source src="/{{row['video']}}" type="video/ogg">
+
+</video>
+			
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}

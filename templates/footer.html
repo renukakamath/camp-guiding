@@ -1,0 +1,87 @@
+<br><br><br><br><br><br><br><br>
+
+<!-- //footer -->
+     <!--js working-->
+      <script src="/static/js/jquery.min.js"></script>
+      <!--//js working-->
+	<!-- smooth scrolling -->
+	<script type="text/javascript" src="/static/js/move-top.js"></script>
+	<script type="text/javascript" src="/static/js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+<!-- //smooth scrolling -->
+
+<!-- typer js--><!-- For banner text -->
+<script src='/static/js/jquery.typer.js'></script>
+	<script>
+						var win = $(window),
+							foo = $('#typer');
+
+						foo.typer(['Creative photography', 'Modern photography ', 'Classic photography ']);
+
+						// unneeded...
+						win.resize(function(){
+							var fontSize = Math.max(Math.min(win.width() / (1 * 10), parseFloat(Number.POSITIVE_INFINITY)), parseFloat(Number.NEGATIVE_INFINITY));
+
+							foo.css({
+								fontSize: fontSize * .8 + 'px'
+							});
+						}).resize();
+					</script>
+<!-- //typer js-->
+<!-- //For banner text -->
+
+
+<!-- scrolling script -->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script> 
+<!-- //scrolling script -->
+ <script src="/static/js/main.js"></script>
+ <!-- Calendar -->
+	<script src="/static/js/jquery-ui.js"></script>
+	<script>
+		$(function () {
+			$("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker();
+		});
+	</script>
+	<!-- //Calendar -->
+
+
+<!--bootstrap working-->
+    <script src="/static/js/bootstrap.min.js"></script>
+ <!-- //bootstrap working-->
+   </body>
+</html>
+
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flashes">
+    {% for message in messages %}
+    <script type="text/javascript">alert("{{message}}")</script>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}

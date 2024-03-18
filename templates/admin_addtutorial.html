@@ -1,0 +1,54 @@
+{% include 'adminheader.html'%}
+<body>
+	<br><br><br>
+	<h1 align="center"><u><font color="red">Add  Tutorial</font></u></h1>
+	<form method="post">
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+		
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<tr>
+				<th><font color="red">title</font></th>
+				<td><input type="text" name="title" class="form-control" required="" style="width:100%;height: 40px"></td>
+			</tr>
+			<tr>
+				<th><font color="red">youtube link</font></th>
+			<td><input type="text" name="description" class="form-control" required="" style="width:100%;height: 40px" ></td>
+		</tr>
+
+		<tr>
+				<th><font color="red">Video</font></th>
+			<td><input type="file" name="image" class="form-control" required="" style="width:100%;height: 40px" ></td>
+		</tr>
+
+		
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="form-control" style="width:100%;height: 40px"></td>
+			</tr>
+		</table>
+
+		<br><br><br>
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<h1 align="center"><font color="red">View  Tutorial</font>
+			<tr>
+				<th>title</th>
+				<th>youtube link</th>
+				<th>Video</th>
+				
+			</tr>
+			<tbody>
+				{% for row in data['crss']%}
+				<td>{{row['title']}}</td>
+				<td>{{row['youtube_link']}}</td>
+
+				<td><video width="320" height="240" controls>
+  <source src="/{{row['video']}}" type="video/mp4">
+  <source src="/{{row['video']}}" type="video/ogg">
+
+</video>
+			
+				<td><a href="?action=delete&id={{row['tutorials_id']}}&tid={{row['product_techonology_id']}}" class="btn btn-primary">Delete</a></td>
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}

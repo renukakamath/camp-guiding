@@ -1,0 +1,40 @@
+{% include 'adminheader.html'%}
+<body>
+	<br><br><br>
+	<h1 align="center"><u><font color="red">Add  product category</font></u></h1>
+	<form method="post">
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+		
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<tr>
+				<th><font color="red">product category</font></th>
+				<td><input type="text" name="product_category" class="form-control" required="" style="width:100%;height: 40px"></td>
+			</tr>
+			
+		</tr>
+
+		
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="form-control" style="width:100%;height: 40px"></td>
+			</tr>
+		</table>
+		
+		<br><br><br>
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<h1 align="center"><font color="red">View  product category</font>
+			<tr>
+				<th>product category</th>
+				
+			</tr>
+			<tbody>
+				{% for row in data['cr']%}
+				<td>{{row['category_name']}}</td>
+			
+			
+				<td><a href="?action=delete&id={{row['product_category_id']}}" class="btn btn-primary">Delete</a></td>
+				<td><a href="admin_addproduct?pid={{row['product_category_id']}}">Add product</a></td>
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}

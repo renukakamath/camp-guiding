@@ -1,0 +1,30 @@
+{% include 'photoheader.html'%}
+<body>
+	<form method="post">
+		
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<h1 align="center"><font color="red">View  Bookings</font>
+			<tr>
+				<th>User</th>
+			
+				<!-- <th>Amount</th> -->
+				<th>date</th>
+				<th>Status</th>
+			</tr>
+			<tbody>
+				{% for row in data['myorder']%}
+				<td>{{row['fname']}}</td>
+			
+				<!-- <td>{{row['amount']}}</td> -->
+				<td>{{row['date']}}</td>
+				<td>{{row['status']}}</td>
+				<td><a href="photo_viewuser?uid={{row['user_id']}}">View User</a></td>
+
+				<!-- <td><a href="photo_addamount?bid={{row['booking_id']}}">Add Amount</a></td>
+			 -->
+					<td><a href="photo_makeproposal?bid={{row['booking_id']}}">makeproposal</a></td>
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}

@@ -1,0 +1,25 @@
+{% include 'adminheader.html'%}
+<body>
+	<form method="post">
+		<h1 align="center"><font color="red"><u>Complaints</u></font></h1>
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<tr>
+				
+				<th><font color="red"> Name</font></th>
+				<th><font color="red">Description</font></th>
+				<th><font color="red">Reply</font></th>
+				<th><font color="red">date</font></th>
+			</tr>
+			<tbody>
+				{% for row in data['com']%}
+				<td>{{row['fname']}}</td>
+				<td>{{row['description']}}</td>
+				<td>{{row['reply']}}</td>
+				<td>{{row['date']}}</td>
+				<td><a href="sendreply?cid={{row['complaint_id']}}">Send Reply</a></td>
+				
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}

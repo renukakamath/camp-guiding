@@ -1,0 +1,43 @@
+{% include 'expertheader.html'%}
+<body>
+	<br><br><br>
+	<h1 align="center"><u><font color="red">Upload Work</font></u></h1>
+	<form method="post" enctype="multipart/form-data">
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+		
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<tr>
+				<th><font color="red">File Path</font></th>
+				<td><input type="file" name="file_path" class="form-control" required="" style="width:100%;height: 40px"></td>
+			</tr>
+			<tr>
+				<th><font color="red">caption</font></th>
+			<td>
+			<textarea name="des" class="form-control" required="" style="width:100%;height: 140px">
+			</textarea>
+			</td>
+		</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="form-control" style="width:100%;height: 40px"></td>
+			</tr>
+		</table>
+		
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<h1 align="center"><font color="red">Work</font></h1>
+			<tbody>
+			<tr>
+				<th><font color="red">SL.No.</font></th>
+				<th><font color="red">File Path</font></th>
+				<th><font color="red">caption</font></th>
+			</tr>
+			{% for row in data['po']%}
+			<td>{{loop.index}}</td>
+			<td><a href="/{{row['file']}}" class="btn btn-primary">file</a></td>
+			<td>{{row['caption']}}</td>
+			<!-- <td><a href="?action=update&id1={{row['evidence_id']}}" class="btn btn-primary">Update</a></td> -->
+			<td><a href="?action=delete&id={{row['works_id']}}" class="btn btn-primary">Delete</a></td>
+		</tbody>
+			{% endfor %}
+		</table>			
+	</form>
+{% include 'footer.html' %}

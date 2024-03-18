@@ -1,0 +1,29 @@
+{% include 'adminheader.html'%}
+<body>
+	<form method="post">
+		<h1 align="center"><font color="red"><u>Feedback</u></font></h1>
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<tr>
+				<th><font color="red">Datetime</font></th>
+				<th><font color="red">Name</font></th>
+				<th><font color="red">Feedback Description</font></th>
+				<th><font color="red">Reply</font></th>
+			</tr>
+			<tbody>
+				{% for row in data['feed']%}
+				<td>{{row['datetime']}}</td>
+				<td>{{row['NAME']}}</td>
+				<td>{{row['feed_description']}}</td>
+				{% if row['reply']=="pending" %}
+				<td>
+					<textarea name="reply{{loop.index}}"></textarea>
+					<input type="submit" name="submit{{loop.index}}" value="submit">
+				</td>
+				{% else %}
+				<td>{{row['reply']}}</td>
+				{% endif %}
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}

@@ -1,0 +1,26 @@
+{% include 'photoheader.html'%}
+<body>
+	<form method="post">
+		
+		<table border="1" align="center" class="table" style="width:700px;background-color:#f1f1c1">
+			<h1 align="center"><font color="red">View  Users</font>
+			<tr>
+				<th>Name</th>
+				<th>Place</th>
+				<th>Phone No</th>
+				<th>Email</th>
+			</tr>
+			<tbody>
+				{% for row in data['myorder']%}
+				<td>{{row['fname']}}{{row['lname']}}</td>
+				<td>{{row['place']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['email']}}</td>
+					<td><a href="photo_chatuser?did={{row['login_id']}}">Chat Here</a></td>
+			
+				
+			</tbody>
+				{% endfor %}
+		</table>
+	</form>
+{% include 'footer.html'%}
